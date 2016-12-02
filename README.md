@@ -1,8 +1,12 @@
-## Notes
+# Notes
 
-React Boilerplate seems a really cool place to start your own react project. 
-Since I've found myself adding the same libraries and component over and over to 
-my own react projects, I've decided to extend the project to include those.
+[React Boilerplate](https://github.com/mxstbr/react-boilerplate) seems a really cool place to start your own react project. Since I've found myself adding the same libraries and component over and over to my own react projects, I've decided to extend the project to include those.
+
+## Libraries added
+
+* Axios
+
+---
 
 <img src="https://raw.githubusercontent.com/mxstbr/react-boilerplate-brand/master/assets/banner-metal-optimized.jpg" alt="react boilerplate banner" align="center" />
 
