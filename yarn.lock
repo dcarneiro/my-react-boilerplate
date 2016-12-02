@@ -1251,6 +1251,10 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
+bowser@^1.0.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/bowser/-/bowser-1.5.0.tgz#b97414bacbc631f19f1e2e11466566ec19324983"
+
 boxen@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/boxen/-/boxen-0.3.1.tgz#a7d898243ae622f7abb6bb604d740a76c6a5461b"
@@ -1560,6 +1564,10 @@ change-case@^2.1.5:
     title-case "^1.1.0"
     upper-case "^1.1.1"
     upper-case-first "^1.1.0"
+
+change-emitter@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/change-emitter/-/change-emitter-0.1.2.tgz#6b88ca4d5d864e516f913421b11899a860aee8db"
 
 cheerio@0.22.0, cheerio@^0.22.0:
   version "0.22.0"
@@ -3115,7 +3123,15 @@ fbjs@0.1.0-alpha.10:
     promise "^7.0.3"
     whatwg-fetch "^0.9.0"
 
-fbjs@^0.8.4:
+fbjs@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.2.1.tgz#622061630a43e11f845017b9044aaa648ed3f731"
+  dependencies:
+    core-js "^1.0.0"
+    promise "^7.0.3"
+    whatwg-fetch "^0.9.0"
+
+fbjs@^0.8.1, fbjs@^0.8.4:
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.5.tgz#f69ba8a876096cb1b9bffe4d7c1e71c19d39d008"
   dependencies:
@@ -3819,7 +3835,7 @@ hoek@2.x.x:
   version "2.16.3"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
 
-hoist-non-react-statics@^1.0.3, hoist-non-react-statics@^1.2.0:
+hoist-non-react-statics@^1.0.0, hoist-non-react-statics@^1.0.3, hoist-non-react-statics@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
@@ -3949,6 +3965,10 @@ humanize-url@^1.0.1:
   dependencies:
     normalize-url "^1.0.0"
     strip-url-auth "^1.0.0"
+
+hyphenate-style-name@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.2.tgz#31160a36930adaf1fc04c6074f7eb41465d4ec4b"
 
 iconv-lite@0.4.13, iconv-lite@~0.4.13:
   version "0.4.13"
@@ -4090,6 +4110,13 @@ inherits@2.0.1:
 ini@^1.3.4, ini@~1.3.0:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.4.tgz#0537cb79daf59b59a1a517dff706c86ec039162e"
+
+inline-style-prefixer@^2.0.1:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/inline-style-prefixer/-/inline-style-prefixer-2.0.5.tgz#c153c7e88fd84fef5c602e95a8168b2770671fe7"
+  dependencies:
+    bowser "^1.0.0"
+    hyphenate-style-name "^1.0.1"
 
 inquirer@^0.10.0:
   version "0.10.1"
@@ -4771,6 +4798,10 @@ karma@1.3.0:
     tmp "0.0.28"
     useragent "^2.1.9"
 
+keycode@^2.1.1:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/keycode/-/keycode-2.1.7.tgz#7b9255919f6cff562b09a064d222dca70b020f5c"
+
 kind-of@^3.0.2:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.0.4.tgz#7b8ecf18a4e17f8269d73b501c9f232c96887a74"
@@ -5098,7 +5129,7 @@ lodash.mapvalues@^4.4.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.mapvalues/-/lodash.mapvalues-4.6.0.tgz#1bafa5005de9dd6f4f26668c30ca37230cc9689c"
 
-lodash.merge@^4.4.0:
+lodash.merge@^4.4.0, lodash.merge@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.0.tgz#69884ba144ac33fe699737a6086deffadd0f89c5"
 
@@ -5150,6 +5181,10 @@ lodash.templatesettings@^3.0.0:
   dependencies:
     lodash._reinterpolate "^3.0.0"
     lodash.escape "^3.0.0"
+
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
 
 lodash.words@^3.0.0:
   version "3.2.0"
@@ -5266,6 +5301,22 @@ map-cache@^0.2.0:
 map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
+
+material-ui@^0.16.4:
+  version "0.16.4"
+  resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.16.4.tgz#b1ff4ea57069a89611b7e02a83d47c649e13c798"
+  dependencies:
+    babel-runtime "^6.11.6"
+    inline-style-prefixer "^2.0.1"
+    keycode "^2.1.1"
+    lodash.merge "^4.6.0"
+    lodash.throttle "^4.1.1"
+    react-addons-create-fragment "^15.0.0"
+    react-addons-transition-group "^15.0.0"
+    react-event-listener "^0.4.0"
+    recompose "^0.20.2"
+    simple-assign "^0.1.0"
+    warning "^3.0.0"
 
 math-expression-evaluator@^1.2.14:
   version "1.2.14"
@@ -6481,9 +6532,21 @@ rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@~1.1.0:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
+react-addons-create-fragment@^15.0.0:
+  version "15.4.1"
+  resolved "https://registry.yarnpkg.com/react-addons-create-fragment/-/react-addons-create-fragment-15.4.1.tgz#596fde66cf7f375b5dad3c36ff6efe19c0ac47e7"
+
+"react-addons-shallow-compare@^0.14.0 || ^15.0.0":
+  version "15.4.1"
+  resolved "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.4.1.tgz#b68103dd4d13144cb221065f6021de1822bd435a"
+
 "react-addons-test-utils@^0.14.8 || ^15.0.1":
   version "15.3.2"
   resolved "https://registry.yarnpkg.com/react-addons-test-utils/-/react-addons-test-utils-15.3.2.tgz#c09a44f583425a4a9c1b38444d7a6c3e6f0f41f6"
+
+react-addons-transition-group@^15.0.0:
+  version "15.4.1"
+  resolved "https://registry.yarnpkg.com/react-addons-transition-group/-/react-addons-transition-group-15.4.1.tgz#27d92717089c5e2db202e654a85b76a41b703acc"
 
 react-deep-force-update@^1.0.0:
   version "1.0.1"
@@ -6504,6 +6567,13 @@ react-element-to-jsx-string@^3.0.0:
     sortobject "^1.0.0"
     stringify-object "^2.3.1"
     traverse "^0.6.6"
+
+react-event-listener@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-event-listener/-/react-event-listener-0.4.0.tgz#26c40ab18f9f0e0d8d1fed9c3465e79c0a99c9a5"
+  dependencies:
+    react-addons-shallow-compare "^0.14.0 || ^15.0.0"
+    warning "^3.0.0"
 
 react-helmet@3.1.0:
   version "3.1.0"
@@ -6567,6 +6637,12 @@ react-side-effect@1.0.2:
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-1.0.2.tgz#98e354decdbf0281e4223d87852d33e345eda561"
   dependencies:
     fbjs "0.1.0-alpha.10"
+
+react-tap-event-plugin@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-tap-event-plugin/-/react-tap-event-plugin-1.0.0.tgz#7a248505a9e9abecc352b2dab313d17685c51adf"
+  dependencies:
+    fbjs "^0.2.1"
 
 react-transform-catch-errors@^1.0.2:
   version "1.0.2"
@@ -6681,6 +6757,15 @@ rechoir@^0.6.2:
   resolved "https://registry.yarnpkg.com/rechoir/-/rechoir-0.6.2.tgz#85204b54dba82d5742e28c96756ef43af50e3384"
   dependencies:
     resolve "^1.1.6"
+
+recompose@^0.20.2:
+  version "0.20.2"
+  resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.20.2.tgz#113d6ac7e29ca664cfffec16b681ddddf15250bc"
+  dependencies:
+    change-emitter "^0.1.2"
+    fbjs "^0.8.1"
+    hoist-non-react-statics "^1.0.0"
+    symbol-observable "^0.2.4"
 
 redbox-react@^1.2.2:
   version "1.3.1"
@@ -7115,6 +7200,10 @@ signal-exit@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.1.tgz#5a4c884992b63a7acd9badb7894c3ee9cfccad81"
 
+simple-assign@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/simple-assign/-/simple-assign-0.1.0.tgz#17fd3066a5f3d7738f50321bb0f14ca281cc4baa"
+
 sinon@2.0.0-pre:
   version "2.0.0-pre"
   resolved "https://registry.yarnpkg.com/sinon/-/sinon-2.0.0-pre.tgz#18293b00fb2f155c99e8e5b46e31f7eade32815d"
@@ -7507,6 +7596,10 @@ swap-case@^1.1.0:
   dependencies:
     lower-case "^1.1.1"
     upper-case "^1.1.1"
+
+symbol-observable@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-0.2.4.tgz#95a83db26186d6af7e7a18dbd9760a2f86d08f40"
 
 symbol-observable@^1.0.1, symbol-observable@^1.0.2:
   version "1.0.3"

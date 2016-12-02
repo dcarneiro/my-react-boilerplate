@@ -19,7 +19,11 @@ import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
-import LanguageProvider from 'containers/LanguageProvider';
+
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+import LanguageProvider from './containers/LanguageProvider';
 import configureStore from './store';
 
 // Import i18n messages
@@ -27,6 +31,11 @@ import { translationMessages } from './i18n';
 
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
 import 'sanitize.css/sanitize.css';
+
+// Material UI
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
 
 // Create redux store with history
 // this uses the singleton browserHistory provided by react-router
@@ -56,15 +65,17 @@ const render = (translatedMessages) => {
   ReactDOM.render(
     <Provider store={store}>
       <LanguageProvider messages={translatedMessages}>
-        <Router
-          history={history}
-          routes={rootRoute}
-          render={
-            // Scroll to top when going to a new page, imitating default browser
-            // behaviour
-            applyRouterMiddleware(useScroll())
-          }
-        />
+        <MuiThemeProvider>
+          <Router
+            history={history}
+            routes={rootRoute}
+            render={
+              // Scroll to top when going to a new page, imitating default browser
+              // behaviour
+              applyRouterMiddleware(useScroll())
+            }
+          />
+        </MuiThemeProvider>
       </LanguageProvider>
     </Provider>,
     document.getElementById('app')

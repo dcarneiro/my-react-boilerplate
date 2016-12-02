@@ -4,7 +4,12 @@
 
 ## Libraries added
 
-* Axios
+* [axios](https://github.com/mzabriskie/axios)
+* [material-ui](https://github.com/callemall/material-ui)
+
+## Components
+
+* Default Layout (Drawer still broken 😭)
 
 ---
 

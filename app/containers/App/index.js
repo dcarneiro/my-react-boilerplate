@@ -11,9 +11,14 @@
  * the linting exception.
  */
 
-import React from 'react';
+import React, { Component } from 'react';
+import AppBar from 'material-ui/AppBar';
 
-export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+import Container from './Container';
+import Main from './Main';
+import NavigationBar from '../NavigationBar';
+
+class App extends Component { // eslint-disable-line react/prefer-stateless-function
 
   static propTypes = {
     children: React.PropTypes.node,
@@ -22,8 +27,19 @@ export default class App extends React.PureComponent { // eslint-disable-line re
   render() {
     return (
       <div>
-        {React.Children.toArray(this.props.children)}
+        <NavigationBar isAuthenticated={false} />
+        <Main>
+          <AppBar
+            title="My Awesome App Name"
+            onTitleTouchTap={this.handleTouchTap}
+          />
+          <Container>
+            {React.Children.toArray(this.props.children)}
+          </Container>
+        </Main>
       </div>
     );
   }
 }
+
+export default App;

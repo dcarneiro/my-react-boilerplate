@@ -18,9 +18,6 @@ function parseJSON(response) {
  *                 statusText
  */
 function handleError(err) {
-  console.log('handleError');
-  console.log(err);
-
   const { statusText } = err.response;
   const error = new Error(statusText);
   error.response = statusText;
