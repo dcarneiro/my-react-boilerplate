@@ -12,17 +12,25 @@
  */
 
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 
-import Container from './Container';
 import Main from './Main';
+import Container from './Container';
 import NavigationBar from '../NavigationBar';
+import NotificationList from '../NotificationList';
+import RequestHandler from '../RequestHandler';
 
 class App extends Component { // eslint-disable-line react/prefer-stateless-function
 
   static propTypes = {
     children: React.PropTypes.node,
   };
+
+  handleTouchTap(e) {
+    e.preventDefault();
+    browserHistory.push('/');
+  }
 
   render() {
     return (
@@ -36,6 +44,9 @@ class App extends Component { // eslint-disable-line react/prefer-stateless-func
           <Container>
             {React.Children.toArray(this.props.children)}
           </Container>
+
+          <NotificationList />
+          <RequestHandler />
         </Main>
       </div>
     );

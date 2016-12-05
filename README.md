@@ -6,10 +6,12 @@
 
 * [axios](https://github.com/mzabriskie/axios)
 * [material-ui](https://github.com/callemall/material-ui)
+* [react-notification-system](https://github.com/igorprado/react-notification-system)
 
 ## Components
 
 * Default Layout (Drawer still broken 😭)
+* Login
 
 ---
 
