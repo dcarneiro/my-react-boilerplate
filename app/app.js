@@ -64,9 +64,16 @@ const rootRoute = {
   childRoutes: createRoutes(store),
 };
 
-if (localStorage.jwtToken) {
-  setAuthorizationToken(localStorage.jwtToken);
-  store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken).sub));
+if (localStorage.getItem('jwtToken')) {
+  try {
+    const currentUser = jwtDecode(localStorage.getItem('jwtToken')).sub;
+    setAuthorizationToken(localStorage.getItem('jwtToken'));
+    store.dispatch(setCurrentUser(currentUser));
+  }
+  catch (error) {
+    console.log('there is something fishy with the local storage. Lets clear it');
+    localStorage.removeItem('jwtToken');
+  }
 }
 
 const render = (translatedMessages) => {

@@ -20,8 +20,8 @@ export class RequestHandler extends Component {
   componentWillReceiveProps(nextProps) {
     const { requestHandler } = nextProps;
 
-    if (requestHandler.error) {
-      this.props.addNotification({ text: requestHandler.error, type: 'error' });
+    if (requestHandler.get('error')) {
+      this.props.addNotification({ text: requestHandler.get('error'), type: 'error' });
     }
   }
 

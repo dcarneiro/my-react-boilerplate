@@ -13,9 +13,7 @@
 import { fromJS } from 'immutable';
 import isEmpty from 'lodash/isEmpty';
 
-import {
-  SET_CURRENT_USER,
-} from './constants';
+import { SET_CURRENT_USER } from './constants';
 
 const loginDefaultState = fromJS({
   isAuthenticated: false,
@@ -28,7 +26,7 @@ function loginReducer(state = loginDefaultState, action = {}) {
       return state.withMutations((ctx) => {
         ctx
           .set('isAuthenticated', !isEmpty(action.user))
-          .set('user', action.user)
+          .set('user', action.user);
       });
     default:
       return state;

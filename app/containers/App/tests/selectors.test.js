@@ -12,10 +12,9 @@ describe('selectIsAuthenticated', () => {
   it('should select isAuthenticated', () => {
     const mockedState = fromJS({
       global: fromJS({
-        isAuthenticated: true
+        isAuthenticated: true,
       }),
     });
-    console.log('test', mockedState, isAuthenticatedSelector(mockedState));
     expect(isAuthenticatedSelector(mockedState)).toEqual(true);
   });
 });

@@ -26,7 +26,6 @@ export class NotificationList extends Component { // eslint-disable-line react/p
 
   componentWillReceiveProps(nextProps) {
     const { notificationList } = nextProps;
-
     const message = notificationList[notificationList.length - 1];
 
     if (message) {
@@ -34,7 +33,7 @@ export class NotificationList extends Component { // eslint-disable-line react/p
         uid: message.id,
         message: message.text,
         level: message.type || 'success',
-        onRemove: ((m) => removeNotification(m.uid)),
+        onRemove: ((m) => this.props.removeNotification(m.uid)),
       });
     }
   }
@@ -55,5 +54,9 @@ function mapDispatchToProps(dispatch) {
     removeNotification: bindActionCreators(removeNotification, dispatch),
   };
 }
+
+NotificationList.propTypes = {
+  removeNotification: React.PropTypes.func,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NotificationList);

@@ -62,4 +62,8 @@ const mapStateToProps = createStructuredSelector({
   isAuthenticated: selectIsAuthenticated(),
 });
 
+App.propTypes = {
+  isAuthenticated: React.PropTypes.bool,
+};
+
 export default connect(mapStateToProps)(App);

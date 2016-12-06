@@ -1,4 +1,4 @@
-import { takeEvery } from 'redux-saga';
+import { takeLatest } from 'redux-saga';
 import { put, take, call, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { browserHistory } from 'react-router';
@@ -9,6 +9,7 @@ import { SET_CURRENT_USER } from '../App/constants';
 
 import { SENDING_REQUEST, REQUEST_ERROR } from '../RequestHandler/constants';
 import { postRequest, setAuthorizationToken } from '../../utils/request';
+import { addNotification } from '../NotificationList/actions';
 
 function processLoginResponse(data) {
   const { access_token } = data;
@@ -30,6 +31,7 @@ export function* handleLoginRequest(data) {
   try {
     const response = yield call(postRequest, '/token', body);
     const currentUser = yield call(processLoginResponse, response);
+    yield put(addNotification({ text: `Hello ${currentUser.email}` }));
     yield put({ type: SET_CURRENT_USER, user: currentUser });
     browserHistory.push('/');
   } catch (error) {
@@ -40,7 +42,7 @@ export function* handleLoginRequest(data) {
 }
 
 export function* getWatcher() {
-  yield takeEvery(LOGIN_REQUEST, handleLoginRequest);
+  yield fork(takeLatest, LOGIN_REQUEST, handleLoginRequest);
 }
 
 /**

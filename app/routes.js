@@ -44,8 +44,25 @@ export default function createRoutes(store) {
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([reducer, sagas, component]) => {
-          injectReducer('login', reducer.default);
+        importModules.then(([sagas, component]) => {
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/logout',
+      name: 'logout',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Logout/sagas'),
+          System.import('containers/Logout'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([sagas, component]) => {
           injectSagas(sagas.default);
           renderRoute(component);
         });
