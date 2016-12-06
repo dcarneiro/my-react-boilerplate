@@ -29,7 +29,7 @@ class LoginForm extends Component {
   }
 
   doSubmit(data) {
-    this.props.handleLogin(data.email, data.password);
+    this.props.handleLogin(data.get('email'), data.get('password'));
   }
 
   render() {
