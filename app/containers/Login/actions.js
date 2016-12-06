@@ -17,7 +17,6 @@
 
 import {
   LOGIN_REQUEST,
-  SET_CURRENT_USER,
 } from './constants';
 
 /**
@@ -32,12 +31,5 @@ export function loginRequest(email, password) {
     type: LOGIN_REQUEST,
     email,
     password,
-  };
-}
-
-export function setCurrentUser(user) {
-  return {
-    type: SET_CURRENT_USER,
-    user,
   };
 }

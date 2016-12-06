@@ -38,7 +38,6 @@ export default function createRoutes(store) {
       name: 'login',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          System.import('containers/Login/reducer'),
           System.import('containers/Login/sagas'),
           System.import('containers/Login'),
         ]);

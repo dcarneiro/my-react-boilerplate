@@ -10,3 +10,4 @@
  */
 
 export const DEFAULT_LOCALE = 'en';
+export const SET_CURRENT_USER = 'media-groups-ui/Login/SET_CURRENT_USER';

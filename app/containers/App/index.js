@@ -12,9 +12,12 @@
  */
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
+import { createStructuredSelector } from 'reselect';
 
+import { selectIsAuthenticated } from './selectors';
 import Main from './Main';
 import Container from './Container';
 import NavigationBar from '../NavigationBar';
@@ -33,9 +36,11 @@ class App extends Component { // eslint-disable-line react/prefer-stateless-func
   }
 
   render() {
+    const { isAuthenticated } = this.props;
+
     return (
       <div>
-        <NavigationBar isAuthenticated={false} />
+        <NavigationBar isAuthenticated={isAuthenticated} />
         <Main>
           <AppBar
             title="My Awesome App Name"
@@ -53,4 +58,8 @@ class App extends Component { // eslint-disable-line react/prefer-stateless-func
   }
 }
 
-export default App;
+const mapStateToProps = createStructuredSelector({
+  isAuthenticated: selectIsAuthenticated(),
+});
+
+export default connect(mapStateToProps)(App);

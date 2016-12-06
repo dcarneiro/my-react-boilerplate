@@ -12,5 +12,4 @@
 
 export const LOGIN_REQUEST = 'media-groups-ui/Login/LOGIN_REQUEST';
 export const SET_AUTH_TOKEN = 'media-groups-ui/Login/SET_AUTH_TOKEN';
-export const SET_CURRENT_USER = 'media-groups-ui/Login/SET_CURRENT_USER';
 export const LOGIN_SUCCESSFUL = 'media-groups-ui/Login/LOGIN_SUCCESSFUL';

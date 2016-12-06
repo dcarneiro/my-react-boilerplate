@@ -4,7 +4,9 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import jwtDecode from 'jwt-decode';
 
-import { LOGIN_REQUEST, SET_CURRENT_USER } from './constants';
+import { LOGIN_REQUEST } from './constants';
+import { SET_CURRENT_USER } from '../App/constants';
+
 import { SENDING_REQUEST, REQUEST_ERROR } from '../RequestHandler/constants';
 import { postRequest, setAuthorizationToken } from '../../utils/request';
 

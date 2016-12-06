@@ -9,6 +9,7 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form/immutable';
 
 import languageProviderReducer from './containers/LanguageProvider/reducer';
+import globalReducer from './containers/App/reducer';
 import notificationListReducer from './containers/NotificationList/reducer';
 import requestHandlerReducer from './containers/RequestHandler/reducer';
 
@@ -47,6 +48,7 @@ export default function createReducer(asyncReducers) {
   return combineReducers({
     notificationList: notificationListReducer,
     requestHandler: requestHandlerReducer,
+    global: globalReducer,
     route: routeReducer,
     language: languageProviderReducer,
     form: formReducer,

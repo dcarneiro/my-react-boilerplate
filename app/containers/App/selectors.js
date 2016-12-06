@@ -1,3 +1,12 @@
+import { createSelector } from 'reselect';
+
+const selectGlobal = () => (state) => state.get('global');
+
+const selectIsAuthenticated = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.get('isAuthenticated')
+);
+
 // selectLocationState expects a plain JS object for the routing state
 const selectLocationState = () => {
   let prevRoutingState;
@@ -16,5 +25,7 @@ const selectLocationState = () => {
 };
 
 export {
+  selectGlobal,
+  selectIsAuthenticated,
   selectLocationState,
 };

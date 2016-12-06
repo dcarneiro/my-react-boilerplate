@@ -10,24 +10,26 @@
  *   return state.set('yourStateVariable', true);
  */
 
+import { fromJS } from 'immutable';
 import isEmpty from 'lodash/isEmpty';
 
 import {
   SET_CURRENT_USER,
 } from './constants';
 
-const loginDefaultState = {
+const loginDefaultState = fromJS({
   isAuthenticated: false,
   user: null,
-};
+});
 
 function loginReducer(state = loginDefaultState, action = {}) {
   switch (action.type) {
     case SET_CURRENT_USER:
-      return { ...state,
-        isAuthenticated: !isEmpty(action.user),
-        user: action.user,
-      };
+      return state.withMutations((ctx) => {
+        ctx
+          .set('isAuthenticated', !isEmpty(action.user))
+          .set('user', action.user)
+      });
     default:
       return state;
   }

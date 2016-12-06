@@ -22,9 +22,13 @@ import { useScroll } from 'react-router-scroll';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import jwtDecode from 'jwt-decode';
 
 import LanguageProvider from './containers/LanguageProvider';
 import configureStore from './store';
+
+import { setAuthorizationToken } from './utils/request';
+import { setCurrentUser } from './containers/App/actions';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
@@ -60,6 +64,10 @@ const rootRoute = {
   childRoutes: createRoutes(store),
 };
 
+if (localStorage.jwtToken) {
+  setAuthorizationToken(localStorage.jwtToken);
+  store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken).sub));
+}
 
 const render = (translatedMessages) => {
   ReactDOM.render(
