@@ -69,9 +69,7 @@ if (localStorage.getItem('jwtToken')) {
     const currentUser = jwtDecode(localStorage.getItem('jwtToken')).sub;
     setAuthorizationToken(localStorage.getItem('jwtToken'));
     store.dispatch(setCurrentUser(currentUser));
-  }
-  catch (error) {
-    console.log('there is something fishy with the local storage. Lets clear it');
+  } catch (error) {
     localStorage.removeItem('jwtToken');
   }
 }

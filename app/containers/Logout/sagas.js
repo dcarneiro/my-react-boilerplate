@@ -5,7 +5,6 @@ import { browserHistory } from 'react-router';
 
 import { LOGOUT_REQUEST } from './constants';
 import { setCurrentUser } from '../App/actions';
-import { SET_CURRENT_USER } from '../App/constants';
 import { setAuthorizationToken } from '../../utils/request';
 
 export function* handleLogoutRequest() {
