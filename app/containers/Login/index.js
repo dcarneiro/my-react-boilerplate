@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import FlatButton from 'material-ui/FlatButton';
 
 import Title from '../../components/Title';
 import LoginForm from '../../components/LoginForm';
@@ -22,6 +23,7 @@ class Login extends Component {
       <div>
         <Title>Login</Title>
         <LoginForm handleLogin={this.handleLogin} />
+        <FlatButton label="Forgot your Password" href="/forgot-password" />
       </div>
     );
   }

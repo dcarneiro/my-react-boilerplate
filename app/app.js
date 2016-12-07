@@ -22,6 +22,7 @@ import { useScroll } from 'react-router-scroll';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import jwtDecode from 'jwt-decode';
 
 import LanguageProvider from './containers/LanguageProvider';
@@ -33,8 +34,9 @@ import { setCurrentUser } from './containers/App/actions';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
-// Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
+// Import CSS reset and Global Styles
 import 'sanitize.css/sanitize.css';
+import './global-styles';
 
 // Material UI
 // Needed for onTouchTap
@@ -76,9 +78,9 @@ if (localStorage.getItem('jwtToken')) {
 
 const render = (translatedMessages) => {
   ReactDOM.render(
-    <Provider store={store}>
-      <LanguageProvider messages={translatedMessages}>
-        <MuiThemeProvider>
+    <MuiThemeProvider muiTheme={getMuiTheme()}>
+      <Provider store={store}>
+        <LanguageProvider messages={translatedMessages}>
           <Router
             history={history}
             routes={rootRoute}
@@ -88,9 +90,9 @@ const render = (translatedMessages) => {
               applyRouterMiddleware(useScroll())
             }
           />
-        </MuiThemeProvider>
-      </LanguageProvider>
-    </Provider>,
+        </LanguageProvider>
+      </Provider>
+    </MuiThemeProvider>,
     document.getElementById('app')
   );
 };
