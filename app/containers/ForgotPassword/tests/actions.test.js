@@ -1,18 +1,34 @@
 import expect from 'expect';
 import {
-  defaultAction,
-} from '../actions';
-import {
-  DEFAULT_ACTION,
+  FORGOT_PASSWORD_REQUEST,
+  FORGOT_PASSWORD_REQUEST_SENT,
 } from '../constants';
 
+import {
+  forgotPasswordRequest,
+  forgotPasswordRequestSent,
+} from '../actions';
+
 describe('ForgotPassword actions', () => {
-  describe('Default Action', () => {
-    it('has a type of DEFAULT_ACTION', () => {
+  describe('Forgot Password Resent Action', () => {
+    it('has a type of FORGOT_PASSWORD_REQUEST', () => {
+      const email = 'email@gmail.com';
       const expected = {
-        type: DEFAULT_ACTION,
+        type: FORGOT_PASSWORD_REQUEST,
+        email,
       };
-      expect(defaultAction()).toEqual(expected);
+      expect(forgotPasswordRequest(email)).toEqual(expected);
+    });
+  });
+
+  describe('Forgot Password Request Sent Action', () => {
+    it('has a type of FORGOT_PASSWORD_REQUEST_SENT', () => {
+      const email = 'email@gmail.com';
+      const expected = {
+        type: FORGOT_PASSWORD_REQUEST_SENT,
+        email,
+      };
+      expect(forgotPasswordRequestSent(email)).toEqual(expected);
     });
   });
 });

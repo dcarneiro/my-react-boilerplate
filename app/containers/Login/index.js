@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -23,7 +24,7 @@ class Login extends Component {
       <div>
         <Title>Login</Title>
         <LoginForm handleLogin={this.handleLogin} />
-        <FlatButton label="Forgot your Password" href="/forgot-password" />
+        <FlatButton label="Forgot your Password" onTouchTap={() => browserHistory.push('/forgot-password')} />
       </div>
     );
   }

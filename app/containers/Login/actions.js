@@ -15,9 +15,7 @@
  *    }
  */
 
-import {
-  LOGIN_REQUEST,
-} from './constants';
+import { LOGIN_REQUEST } from './constants';
 
 /**
  * Changes the input field of the form

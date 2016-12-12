@@ -5,7 +5,7 @@ import React from 'react';
 import ForgotPasswordForm from '../index';
 
 describe('<ForgotPasswordForm />', () => {
-  it('Should render a <form> tag', () => {
+  it('should render a <form> tag', () => {
     const renderedComponent = shallow(
       <ForgotPasswordForm />
     );

@@ -6,7 +6,7 @@ import NotificationSystem from 'react-notification-system';
 import { NotificationList } from '../index';
 
 describe('<NotificationList />', () => {
-  it('Should render the notifications', () => {
+  it('should render the notifications', () => {
     const renderedComponent = shallow(
       <NotificationList />
     );

@@ -5,11 +5,20 @@
  */
 
 import {
-  DEFAULT_ACTION,
+  FORGOT_PASSWORD_REQUEST,
+  FORGOT_PASSWORD_REQUEST_SENT,
 } from './constants';
 
-export function defaultAction() {
+export function forgotPasswordRequest(email) {
   return {
-    type: DEFAULT_ACTION,
+    type: FORGOT_PASSWORD_REQUEST,
+    email,
+  };
+}
+
+export function forgotPasswordRequestSent(email) {
+  return {
+    type: FORGOT_PASSWORD_REQUEST_SENT,
+    email,
   };
 }

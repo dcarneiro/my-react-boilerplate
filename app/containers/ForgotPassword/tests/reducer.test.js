@@ -2,8 +2,20 @@ import expect from 'expect';
 import forgotPasswordReducer from '../reducer';
 import { fromJS } from 'immutable';
 
+import { forgotPasswordRequestSent } from '../actions';
+
 describe('forgotPasswordReducer', () => {
+  let state;
+  beforeEach(() => {
+    state = fromJS({
+      email: null,
+    });
+  });
+
   it('returns the initial state', () => {
-    expect(forgotPasswordReducer(undefined, {})).toEqual(fromJS({}));
+    const action = forgotPasswordRequestSent('test@email.com');
+    expect(forgotPasswordReducer(state, action)).toEqual(fromJS({
+      email: 'test@email.com',
+    }));
   });
 });

@@ -34,7 +34,7 @@ class ForgotPasswordForm extends Component {
   }
 
   doSubmit(data) {
-    this.props.handleForgetPassword(data.get('email'));
+    this.props.handleForgotPassword(data.get('email'));
   }
 
   render() {
@@ -54,7 +54,7 @@ class ForgotPasswordForm extends Component {
 }
 
 ForgotPasswordForm.propTypes = {
-  handleForgetPassword: React.PropTypes.func.isRequired,
+  handleForgotPassword: React.PropTypes.func.isRequired,
   handleSubmit: React.PropTypes.func, // redux-form handles this one
 };
 
