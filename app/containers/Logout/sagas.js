@@ -5,11 +5,10 @@ import { browserHistory } from 'react-router';
 
 import { LOGOUT_REQUEST } from './constants';
 import { setCurrentUser } from '../App/actions';
-import { setAuthorizationToken } from '../../utils/request';
+import { expireJwtToken } from '../../utils/jwtToken';
 
 export function* handleLogoutRequest() {
-  localStorage.removeItem('jwtToken');
-  setAuthorizationToken(null);
+  expireJwtToken();
   yield put(setCurrentUser(null));
   browserHistory.push('/');
 }

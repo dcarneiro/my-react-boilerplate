@@ -11,7 +11,10 @@ const Heading = styled.h1`
 const Title = (props) => <Heading>{props.children}</Heading>;
 
 Title.propTypes = {
-  children: React.PropTypes.string.isRequired,
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.object,
+  ]).isRequired,
 };
 
 export default Title;

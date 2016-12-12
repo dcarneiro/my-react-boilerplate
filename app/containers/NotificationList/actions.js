@@ -26,6 +26,16 @@ export function addNotification(message) {
   };
 }
 
+export function addSuccessNotification(text) {
+  return {
+    type: ADD_NOTIFICATION,
+    message: {
+      text,
+      type: 'success',
+    },
+  };
+}
+
 export function removeNotification(id) {
   return {
     type: REMOVE_NOTIFICATION,

@@ -1,22 +1,15 @@
+import { browserHistory } from 'react-router';
 import { takeLatest } from 'redux-saga';
 import { put, take, call, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { browserHistory } from 'react-router';
-import jwtDecode from 'jwt-decode';
 
 import { LOGIN_REQUEST } from './constants';
 import { SET_CURRENT_USER } from '../App/constants';
 
 import { SENDING_REQUEST, REQUEST_ERROR } from '../RequestHandler/constants';
-import { postRequest, setAuthorizationToken } from '../../utils/request';
+import { postRequest } from '../../utils/request';
+import { handleJwtToken } from '../../utils/jwtToken';
 import { addNotification } from '../NotificationList/actions';
-
-function processLoginResponse(data) {
-  const { access_token } = data;
-  localStorage.setItem('jwtToken', access_token);
-  setAuthorizationToken(access_token);
-  return jwtDecode(access_token).sub;
-}
 
 export function* handleLoginRequest(data) {
   const { email, password } = data;
@@ -30,7 +23,7 @@ export function* handleLoginRequest(data) {
 
   try {
     const response = yield call(postRequest, '/token', body);
-    const currentUser = yield call(processLoginResponse, response);
+    const currentUser = yield call(handleJwtToken, response);
     yield put(addNotification({ text: `Hello ${currentUser.email}` }));
     yield put({ type: SET_CURRENT_USER, user: currentUser });
     browserHistory.push('/');

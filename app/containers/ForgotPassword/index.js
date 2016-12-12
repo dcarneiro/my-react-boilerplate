@@ -16,7 +16,7 @@ import ForgotPasswordRequestSent from '../../components/ForgotPasswordRequestSen
 import { forgotPasswordRequest } from './actions';
 import { selectEmail } from './selectors';
 
-class ForgotPassword extends Component {
+export class ForgotPassword extends Component {
   constructor() {
     super();
     this.handleForgotPassword = this.handleForgotPassword.bind(this);
@@ -34,9 +34,9 @@ class ForgotPassword extends Component {
     return (
       <div>
         <Title>Forgot Password</Title>
-        { email ? forgotPasswordRequestSent: forgotPasswordForm }
+        { email ? forgotPasswordRequestSent : forgotPasswordForm }
       </div>
-    )
+    );
   }
 }
 

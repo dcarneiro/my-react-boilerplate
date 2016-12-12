@@ -3,7 +3,7 @@ import { put, take, call, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
 import { FORGOT_PASSWORD_REQUEST } from './constants';
-import { forgotPasswordRequestSent} from './actions';
+import { forgotPasswordRequestSent } from './actions';
 
 import { SENDING_REQUEST, REQUEST_ERROR } from '../RequestHandler/constants';
 import { postRequest } from '../../utils/request';

@@ -10,13 +10,13 @@ import messages from '../messages';
 describe('<ForgotPasswordRequestSent />', () => {
   it('should render a text with the email', () => {
     const renderedComponent = shallow(
-      <ForgotPasswordRequestSent email='test@email.com' />
+      <ForgotPasswordRequestSent email="test@email.com" />
     );
 
     expect(renderedComponent.contains(
       <FormattedMessage
         {...messages.body}
-        values={{email: 'test@email.com'}}
+        values={{ email: 'test@email.com' }}
       />
     )).toEqual(true);
   });

@@ -10,4 +10,4 @@ const selectEmail = () => createSelector(
 export {
   selectForgotPassword,
   selectEmail,
-}
+};
