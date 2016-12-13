@@ -33,8 +33,6 @@ describe('handleResetPasswordRequest Saga', () => {
 
   const generator = handleResetPasswordRequest(params);
 
-  let currentUser;
-
   it('sends a sending request action', () => {
     const descriptor = generator.next();
     expect(descriptor.value).toEqual(put(sendingRequest(true)));
@@ -48,18 +46,17 @@ describe('handleResetPasswordRequest Saga', () => {
   it('sets the jwt token', () => {
     const accessTokenResponse = { access_token: 'alsfncal' };
     const descriptor = generator.next(accessTokenResponse);
-    currentUser = descriptor.value;
-    expect(currentUser).toEqual(call(handleJwtToken, accessTokenResponse));
+    expect(descriptor.value).toEqual(call(handleJwtToken, accessTokenResponse));
   });
 
   it('set the current user', () => {
+    const currentUser = { email: 'test@gmail.com' };
     const descriptor = generator.next(currentUser);
     expect(descriptor.value).toEqual(put(setCurrentUser(currentUser)));
   });
 
   it('notify the user the password was changed', () => {
-    // crap, the message is hardcoded
-    const text = 'Hello undefined. Your password was changed';
+    const text = 'Hello test@gmail.com. Your password was changed';
     const descriptor = generator.next(text);
     expect(descriptor.value).toEqual(put(addSuccessNotification(text)));
   });

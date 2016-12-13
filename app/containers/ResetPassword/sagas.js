@@ -30,9 +30,9 @@ export function* handleResetPasswordRequest(data) {
     const response = yield call(postRequest, '/change_password', body);
     const currentUser = yield call(handleJwtToken, response);
 
-    const notificationMessage = `Hello ${currentUser.email}. Your password was changed`;
-
     yield put(setCurrentUser(currentUser));
+
+    const notificationMessage = `Hello ${currentUser.email}. Your password was changed`;
     yield put(addSuccessNotification(notificationMessage));
 
     browserHistory.push('/');
