@@ -1,6 +1,7 @@
 # Notes
 
-[React Boilerplate](https://github.com/mxstbr/react-boilerplate) seems a really cool place to start your own react project. Since I've found myself adding the same libraries and component over and over to my own react projects, I've decided to extend the project to include those.
+I'm kind of a react newbie and for me [React Boilerplate](https://github.com/mxstbr/react-boilerplate) seems a really cool place to start my own react project. 
+Since I've found myself adding the same libraries and component over and over to my projects, I've decided to extend that boilerplate with the stuff I've keep using.
 
 ## Libraries added
 
@@ -12,6 +13,21 @@
 
 * Default Layout (Drawer still broken 😭)
 * Login
+
+## To use this boilerplate
+
+* git clone --depth=1 https://github.com/dcarneiro/my-react-boilerplate.git <repo-name>
+* cd <repo-name>
+* rm -rf .git
+* git init && git add . && git commit -m "Initial commit"
+* git remote add origin git@github.com:<username>/<repo-name>.git
+* git push -u origin master
+
+##  Tips and Tricks
+
+You can change the default port in `server/index.js`
+
+# Below you can find the original README
 
 ---
 
