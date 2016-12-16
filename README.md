@@ -16,11 +16,11 @@ Since I've found myself adding the same libraries and component over and over to
 
 ## To use this boilerplate
 
-* git clone --depth=1 https://github.com/dcarneiro/my-react-boilerplate.git <repo-name>
-* cd <repo-name>
+* git clone --depth=1 https://github.com/dcarneiro/my-react-boilerplate.git `repo-name`
+* cd `repo-name`
 * rm -rf .git
 * git init && git add . && git commit -m "Initial commit"
-* git remote add origin git@github.com:<username>/<repo-name>.git
+* git remote add origin git@github.com:`username`/`repo-name`.git
 * git push -u origin master
 
 ##  Tips and Tricks
