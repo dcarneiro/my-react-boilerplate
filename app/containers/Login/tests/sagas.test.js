@@ -6,7 +6,7 @@ import expect from 'expect';
 import { put, call } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
 
-import { handleResetPasswordRequest } from '../sagas';
+import { handleLoginRequest } from '../sagas';
 import { sendingRequest } from '../../RequestHandler/actions';
 import { addSuccessNotification } from '../../NotificationList/actions';
 import { setCurrentUser } from '../../App/actions';
@@ -14,25 +14,22 @@ import { setCurrentUser } from '../../App/actions';
 import { postRequest } from '../../../utils/request';
 import { handleJwtToken } from '../../../utils/jwtToken';
 
-describe('handleResetPasswordRequest Saga', () => {
+describe('handleLoginRequest Saga', () => {
+  const email = 'me@mail.com';
+  const password = 'password';
+
   const params = {
-    id: 7,
-    token: 'ajsnaasc',
-    newPassword: '12345678',
+    email,
+    password,
   };
 
   const body = {
-    data: {
-      id: 7,
-      type: 'change-password',
-      attributes: {
-        token: 'ajsnaasc',
-        'new-password': '12345678',
-      },
-    },
+    grant_type: 'password',
+    email,
+    password,
   };
 
-  const generator = handleResetPasswordRequest(params);
+  const generator = handleLoginRequest(params);
 
   it('sends a sending request action', () => {
     const descriptor = generator.next();
@@ -41,7 +38,7 @@ describe('handleResetPasswordRequest Saga', () => {
 
   it('calls the change password route', () => {
     const descriptor = generator.next();
-    expect(descriptor.value).toEqual(call(postRequest, '/change_password', body));
+    expect(descriptor.value).toEqual(call(postRequest, '/token', body));
   });
 
   it('sets the jwt token', () => {
@@ -51,13 +48,13 @@ describe('handleResetPasswordRequest Saga', () => {
   });
 
   it('set the current user', () => {
-    const currentUser = { email: 'test@gmail.com' };
+    const currentUser = { email };
     const descriptor = generator.next(currentUser);
     expect(descriptor.value).toEqual(put(setCurrentUser(currentUser)));
   });
 
   it('notify the user the password was changed', () => {
-    const text = 'Hello test@gmail.com. Your password was changed';
+    const text = `Hello ${email}.`;
     const descriptor = generator.next(text);
     expect(descriptor.value).toEqual(put(addSuccessNotification(text)));
   });

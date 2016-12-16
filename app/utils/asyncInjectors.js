@@ -61,6 +61,22 @@ export function injectAsyncSagas(store, isValid) {
   };
 }
 
+function redirectToDashboard(store) {
+  return (nextState, replace) => {
+    if (store.getState().get('global').get('isAuthenticated')) {
+      replace('/dashboard');
+    }
+  };
+}
+
+function redirectToLogin(store) {
+  return (nextState, replace) => {
+    if (!store.getState().get('global').get('isAuthenticated')) {
+      replace('/login');
+    }
+  };
+}
+
 /**
  * Helper for creating injectors
  */
@@ -70,5 +86,7 @@ export function getAsyncInjectors(store) {
   return {
     injectReducer: injectAsyncReducer(store, true),
     injectSagas: injectAsyncSagas(store, true),
+    redirectToDashboard: redirectToDashboard(store),
+    redirectToLogin: redirectToLogin(store),
   };
 }

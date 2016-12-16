@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
-import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 import FlatButton from 'material-ui/FlatButton';
+
+import { loginRequest } from './actions';
+
+import messages from './messages';
 
 import Title from '../../components/Title';
 import LoginForm from '../../components/LoginForm';
 
-import { loginRequest } from './actions';
-
-class Login extends Component {
+export class Login extends Component {
   constructor() {
     super();
     this.handleLogin = this.handleLogin.bind(this);
@@ -24,7 +26,10 @@ class Login extends Component {
       <div>
         <Title>Login</Title>
         <LoginForm handleLogin={this.handleLogin} />
-        <FlatButton label="Forgot your Password" onTouchTap={() => browserHistory.push('/forgot-password')} />
+        <FlatButton
+          label={<FormattedMessage {...messages.forgotPasswordButton} />}
+          href="/forgot-password"
+        />
       </div>
     );
   }

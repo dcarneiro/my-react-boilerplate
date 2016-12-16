@@ -1,4 +1,5 @@
 import axios from 'axios';
+import ApiError from './apiError';
 
 /**
  * Parses the JSON returned by a network request
@@ -18,14 +19,12 @@ function parseJSON(response) {
  *                 statusText
  */
 function handleError(err) {
-  const { statusText } = err.response;
-  const error = new Error(statusText);
-  error.response = statusText;
+  const error = new ApiError(err);
   throw error;
 }
 
 const config = {
-  baseURL: 'http://localhost:4000/api/v1/content_purchaser',
+  baseURL: 'http://localhost:4000/api/',
   headers: { 'Content-Type': 'application/json' },
 };
 

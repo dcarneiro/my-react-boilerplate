@@ -43,10 +43,19 @@ class ForgotPasswordForm extends Component {
     return (
       <form onSubmit={handleSubmit(this.doSubmit)}>
         <div>
-          <Field name="email" component={TextField} floatingLabelText={<FormattedMessage {...messages.emailLabel} />} type="email" />
+          <Field
+            name="email"
+            component={TextField}
+            floatingLabelText={<FormattedMessage {...messages.emailLabel} />}
+            type="email"
+          />
         </div>
         <div>
-          <FlatButton type="submit" label={<FormattedMessage {...messages.submitButton} />} primary />
+          <FlatButton
+            type="submit"
+            label={<FormattedMessage {...messages.submitButton} />}
+            primary
+          />
         </div>
       </form>
     );

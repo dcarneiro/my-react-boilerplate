@@ -1,15 +1,14 @@
-import { browserHistory } from 'react-router';
 import { takeLatest } from 'redux-saga';
 import { put, take, call, fork, cancel } from 'redux-saga/effects';
-import { LOCATION_CHANGE } from 'react-router-redux';
+import { push, LOCATION_CHANGE } from 'react-router-redux';
 
 import { LOGIN_REQUEST } from './constants';
-import { SET_CURRENT_USER } from '../App/constants';
 
-import { SENDING_REQUEST, REQUEST_ERROR } from '../RequestHandler/constants';
+import { sendingRequest, requestError } from '../RequestHandler/actions';
+import { addSuccessNotification } from '../NotificationList/actions';
+import { setCurrentUser } from '../App/actions';
 import { postRequest } from '../../utils/request';
 import { handleJwtToken } from '../../utils/jwtToken';
-import { addNotification } from '../NotificationList/actions';
 
 export function* handleLoginRequest(data) {
   const { email, password } = data;
@@ -19,18 +18,22 @@ export function* handleLoginRequest(data) {
     password,
   };
 
-  yield put({ type: SENDING_REQUEST, sending: true });
+  yield put(sendingRequest(true));
 
   try {
     const response = yield call(postRequest, '/token', body);
     const currentUser = yield call(handleJwtToken, response);
-    yield put(addNotification({ text: `Hello ${currentUser.email}` }));
-    yield put({ type: SET_CURRENT_USER, user: currentUser });
-    browserHistory.push('/');
+
+    yield put(setCurrentUser(currentUser));
+
+    const notificationMessage = `Hello ${currentUser.email}.`;
+    yield put(addSuccessNotification(notificationMessage));
+
+    yield put(push('/dashboard'));
   } catch (error) {
-    yield put({ type: REQUEST_ERROR, error });
+    yield put(requestError(error));
   } finally {
-    yield put({ type: SENDING_REQUEST, sending: false });
+    yield put(sendingRequest(false));
   }
 }
 

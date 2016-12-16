@@ -10,7 +10,7 @@ import {
 } from '../actions';
 
 describe('ForgotPassword actions', () => {
-  describe('Forgot Password Resent Action', () => {
+  describe('Forgot Password Request Action', () => {
     it('has a type of FORGOT_PASSWORD_REQUEST', () => {
       const email = 'email@gmail.com';
       const expected = {

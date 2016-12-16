@@ -5,7 +5,7 @@ import GuestBar from './GuestBar';
 import UserBar from './UserBar';
 
 const NavigationBar = (props) => (
-  <Drawer width={200} docked>
+  <Drawer width={300} docked>
     { props.isAuthenticated ? <UserBar /> : <GuestBar /> }
   </Drawer>
 );

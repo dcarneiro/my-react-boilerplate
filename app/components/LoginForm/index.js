@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form/immutable';
 import FlatButton from 'material-ui/FlatButton';
+import { FormattedMessage } from 'react-intl';
 import { TextField } from 'redux-form-material-ui';
 import isEmail from 'sane-email-validation';
+
+import messages from './messages';
 
 const validate = (values) => {
   const errors = {};
@@ -38,13 +41,27 @@ class LoginForm extends Component {
     return (
       <form onSubmit={handleSubmit(this.doSubmit)}>
         <div>
-          <Field name="email" component={TextField} floatingLabelText="Email" type="email" />
+          <Field
+            name="email"
+            component={TextField}
+            floatingLabelText={<FormattedMessage {...messages.emailLabel} />}
+            type="email"
+          />
         </div>
         <div>
-          <Field name="password" component={TextField} floatingLabelText="Password" type="password" />
+          <Field
+            name="password"
+            component={TextField}
+            floatingLabelText={<FormattedMessage {...messages.passwordLabel} />}
+            type="password"
+          />
         </div>
         <div>
-          <FlatButton type="submit" label="Sign In" primary />
+          <FlatButton
+            type="submit"
+            label={<FormattedMessage {...messages.submitButtonLabel} />}
+            primary
+          />
         </div>
       </form>
     );

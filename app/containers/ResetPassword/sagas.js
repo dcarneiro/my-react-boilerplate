@@ -1,7 +1,6 @@
-import { browserHistory } from 'react-router';
 import { takeLatest } from 'redux-saga';
 import { put, take, call, fork, cancel } from 'redux-saga/effects';
-import { LOCATION_CHANGE } from 'react-router-redux';
+import { push, LOCATION_CHANGE } from 'react-router-redux';
 
 import { RESET_PASSWORD_REQUEST } from './constants';
 
@@ -15,9 +14,9 @@ export function* handleResetPasswordRequest(data) {
   const { id, token, newPassword } = data;
   const body = {
     data: {
-      type: 'reset_password',
+      id,
+      type: 'change-password',
       attributes: {
-        id,
         token,
         'new-password': newPassword,
       },
@@ -35,7 +34,7 @@ export function* handleResetPasswordRequest(data) {
     const notificationMessage = `Hello ${currentUser.email}. Your password was changed`;
     yield put(addSuccessNotification(notificationMessage));
 
-    browserHistory.push('/');
+    yield put(push('/dashboard'));
   } catch (error) {
     yield put(requestError(error));
   } finally {
