@@ -1,6 +1,10 @@
 import jwtDecode from 'jwt-decode';
 import { setAuthorizationToken } from './request';
 
+export function jwtTokenKey() {
+  'unique-jwt-token';
+}
+
 /**
  * Parses the JWT token received from the server. Sets the token on the
  * localStorage and add the token to the axios request headers.

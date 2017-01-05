@@ -24,6 +24,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import jwtDecode from 'jwt-decode';
+import { jwtTokenKey } from 'utils/jwtToken';
 
 import LanguageProvider from './containers/LanguageProvider';
 import configureStore from './store';
@@ -66,13 +67,13 @@ const rootRoute = {
   childRoutes: createRoutes(store),
 };
 
-if (localStorage.getItem('jwtToken')) {
+if (localStorage.getItem(jwtTokenKey())) {
   try {
-    const currentUser = jwtDecode(localStorage.getItem('jwtToken')).sub;
-    setAuthorizationToken(localStorage.getItem('jwtToken'));
+    const currentUser = jwtDecode(localStorage.getItem(jwtTokenKey())).sub;
+    setAuthorizationToken(localStorage.getItem(jwtTokenKey()));
     store.dispatch(setCurrentUser(currentUser));
   } catch (error) {
-    localStorage.removeItem('jwtToken');
+    localStorage.removeItem(jwtTokenKey());
   }
 }
 

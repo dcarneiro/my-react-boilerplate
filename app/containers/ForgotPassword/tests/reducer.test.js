@@ -14,8 +14,8 @@ describe('forgotPasswordReducer', () => {
 
   it('returns the initial state', () => {
     const action = forgotPasswordRequestSent('test@email.com');
-    expect(forgotPasswordReducer(state, action)).toEqual(fromJS({
+    expect(forgotPasswordReducer(state, action).toJS()).toEqual({
       email: 'test@email.com',
-    }));
+    });
   });
 });

@@ -9,19 +9,28 @@ Since I've found myself adding the same libraries and component over and over to
 * [material-ui](https://github.com/callemall/material-ui)
 * [react-notification-system](https://github.com/igorprado/react-notification-system)
 
-## Components
+## Containers
 
 * Default Layout (Drawer still broken 😭)
 * Login
+* Recover Password
+* Navigation Bar
+
 
 ## To use this boilerplate
 
-* git clone --depth=1 https://github.com/dcarneiro/my-react-boilerplate.git `repo-name`
-* cd `repo-name`
-* rm -rf .git
-* git init && git add . && git commit -m "Initial commit"
-* git remote add origin git@github.com:`username`/`repo-name`.git
-* git push -u origin master
+```bash
+git clone --depth=1 https://github.com/dcarneiro/my-react-boilerplate.git `repo-name`
+cd `repo-name`
+rm -rf .git
+git init && git add . && git commit -m "Initial commit"
+git remote add origin git@github.com:`username`/`repo-name`.git
+git push -u origin master
+```
+
+* Change package.json to use your project name, description and version
+* Change the title on index.html
+* Change the api url on .env and on Dockerfile
 
 ##  Tips and Tricks
 
