@@ -10,16 +10,14 @@ import messages from './messages';
 const validate = (values) => {
   const errors = {};
 
-  if (values.constructor.name === 'Map') {
-    if (!values.get('email')) {
-      errors.email = 'Required';
-    } else if (!isEmail(values.get('email'))) {
-      errors.email = 'Invalid email address';
-    }
+  if (!values.get('email')) {
+    errors.email = 'Required';
+  } else if (!isEmail(values.get('email'))) {
+    errors.email = 'Invalid email address';
+  }
 
-    if (!values.get('password')) {
-      errors.password = 'Required';
-    }
+  if (!values.get('password')) {
+    errors.password = 'Required';
   }
 
   return errors;

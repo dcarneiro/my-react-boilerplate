@@ -15,16 +15,14 @@ import messages from './messages';
 const validate = (values) => {
   const errors = {};
 
-  if (values.constructor.name === 'Map') {
-    if (!values.get('newPassword')) {
-      errors.newPassword = 'Required';
-    }
+  if (!values.get('newPassword')) {
+    errors.newPassword = 'Required';
+  }
 
-    if (!values.get('passwordConfirmation')) {
-      errors.passwordConfirmation = 'Required';
-    } else if (values.get('newPassword') !== values.get('passwordConfirmation')) {
-      errors.passwordConfirmation = 'Passwords do not match';
-    }
+  if (!values.get('passwordConfirmation')) {
+    errors.passwordConfirmation = 'Required';
+  } else if (values.get('newPassword') !== values.get('passwordConfirmation')) {
+    errors.passwordConfirmation = 'Passwords do not match';
   }
 
   return errors;
